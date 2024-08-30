@@ -9,7 +9,10 @@ body {
 a {
   text-decoration: none;
 }
-
+ul {
+  padding: 0;
+  margin: 0;
+}
 li {
   list-style-type: none;
 }
@@ -699,7 +702,6 @@ li {
       }
     }
     .section4__purchase {
-      margin-top: 18px;
       margin-bottom: 70px;
       .section4__note {
         padding-top: 15px;
@@ -916,6 +918,7 @@ li {
         .top-section {
           flex-direction: column;
           height: 20%;
+          padding: 20px 0px 0px 0px;
           justify-content: start;
           .top-section__a {
             padding: 0;
@@ -933,8 +936,7 @@ li {
         }
         .bottom-section {
           flex-direction: column;
-          // max-width: 90%;
-          right: 1/2;
+
           bottom: -80px;
         }
       }
