@@ -1,95 +1,178 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+/* eslint-disable @next/next/no-img-element */
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <section
+        style={{ backgroundImage: "url(/panner.png)" }}
+        className="section1"
+      >
+        <div className="section1__text">
+          <div className="section1__text-box">
+            <h1 className="medium-50">
+              Introduce Your Product Quickly & Effectively
+            </h1>
+
+            <p className="regular-18">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+              penatibus et magnis dis parturient montes, nascetur ridiculus
+            </p>
+
+            <p className="regular-18__sub">
+              mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+              quis, sem. Nulla consequat massa quis enim.
+            </p>
+          </div>
+
+          <div className="section1__buttons">
+            <button className="section1__button section1__button--primary">
+              Purchase UI Kit
+            </button>
+            <button className="section1__button section1__button--secondary">
+              Learn More
+            </button>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      {/* <!-- Section2 --> */}
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      <section className="section2">
+        <div className="section2__container">
+          <div className="section2__content">
+            <div className="section2__text-container">
+              <h2 className="medium-36">Light, Fast & Powerful</h2>
+              <p className="regular-16">
+                Lorem ipsum dolor sit amet,consectetuer adipiscing elit. Aenean
+                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+                penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+                quis, sem. Nulla consequat massa quis enim.
+              </p>
+            </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+            <div className="section2__cards">
+              <a href="#" className="card">
+                <img src="/icon.png" alt="Icon" className="card__icon" />
+                <h2 className="card__title">Title Goes Here</h2>
+                <p className="card__text">
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                  Aenean commodo ligula eget dolor.
+                </p>
+              </a>
+              <a href="#" className="card">
+                <img src="/icon.png" alt="Icon" className="card__icon" />
+                <h2 className="card__title">Title Goes Here</h2>
+                <p className="card__text">
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                  Aenean commodo ligula eget dolor.
+                </p>
+              </a>
+            </div>
+          </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+          <div className="section2__image-container">
+            <img
+              src="/mobile.png"
+              alt="Mobile"
+              className="section2__image"
+              width={"100%"}
+              height={"auto"}
+            />
+          </div>
+        </div>
+      </section>
+      {/* <!-- Section3 --> */}
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <section className="section3-info">
+        <div className="section3-info__item">
+          <div className="section3-info__image-container">
+            <img src="/info.png" alt="Info" width={"100%"} height={"auto"} />
+          </div>
+          <div className="section3-info__text-container">
+            <h2 className=" medium-36">Light, Fast & Powerful</h2>
+            <p className="regular-16">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+              penatibus et magnis dis parturient montes, nascetur ridiculus
+            </p>
+            <p className="regular-16__sub">
+              mus Donec quam felis, ultricies nec, pellentesque eu, pretium
+              quis, sem. Nulla consequat massa quis enim.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section3-info1">
+        <div className="section3-info__item1">
+          <div className="section3-info__image-container1">
+            <img src="/info1.png" alt="Info" width={"100%"} height={"auto"} />
+          </div>
+          <div className="section3-info__text-container1">
+            <h2 className="medium-36">Light, Fast & Powerful</h2>
+            <p className="regular-16">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+              penatibus et magnis dis parturient montes, nascetur ridiculus
+            </p>
+            <p className="regular-16__sub">
+              mus Donec quam felis, ultricies nec, pellentesque eu, pretium
+              quis, sem. Nulla consequat massa quis enim.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section3-info2">
+        <div className="section3-info__item2">
+          <div className="section3-info__image-container2">
+            <img src="/info2.png" alt="Info" width={"100%"} height={"auto"} />
+          </div>
+          <div className="section3-info__text-container2">
+            <h2 className=" medium-36">Light, Fast & Powerful</h2>
+            <p className="regular-16">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+              penatibus et magnis dis parturient montes, nascetur ridiculus
+            </p>
+
+            <p className="regular-16__sub">
+              mus Donec quam felis, ultricies nec, pellentesque eu, pretium
+              quis, sem. Nulla consequat massa quis enim.
+            </p>
+            <button className="section3-info__button">Purchase Now</button>
+          </div>
+        </div>
+      </section>
+
+      {/* <!-- section4 --> */}
+      <section
+        style={{ backgroundImage: "url(/Rectangle.png)" }}
+        className="section4"
+      >
+        <div className="section4__content">
+          <div className="section4__text-box">
+            <h2 className="section4__title">A Price To Suit Everyone</h2>
+            <p className="section4__description">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+              penatibus et magnis dis parturient montes, nascetur ridiculus.
+            </p>
+          </div>
+          <div className="section4__price-box">
+            <strong className="section4__price">$40</strong>
+            <h2 className="section4__subtitle">UI Design Kit</h2>
+          </div>
+          <div className="section4__purchase">
+            <p className="section4__note">See, One price. Simple.</p>
+            <button className="section4__button">
+              <span className="section4__button-text">Purchase Now</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
