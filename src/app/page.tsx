@@ -27,7 +27,6 @@ export default function Home() {
   useEffect(() => {
     getData();
   }, []);
-  console.log(data1.length);
 
   return (
     <div>
