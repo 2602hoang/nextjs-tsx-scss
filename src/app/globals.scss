@@ -3,7 +3,6 @@ body {
   padding: 0;
   line-height: 1;
   width: 100%;
-  font-family: var(--font-text);
 }
 
 a {
@@ -913,7 +912,7 @@ li {
       height: 450px;
       .responsive-container {
         .back-to-top {
-          bottom: 10%;
+          bottom: 25%;
         }
         .top-section {
           flex-direction: column;
