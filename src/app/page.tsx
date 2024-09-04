@@ -85,7 +85,7 @@ export default function Home() {
                     eu, pretium quis, sem. Nulla consequat massa quis enim.
                   </p>
                 </div>
-                <div className="section2__cards">
+                <div className="section2__cards-list">
                   {data1.map((item, index) => (
                     <Card
                       key={index}
