@@ -492,14 +492,15 @@ li {
     }
     .section2__cards {
       display: flex;
-      direction: flex-row;
+      flex-direction: row;
       margin-bottom: 30px;
       gap: 30px;
       flex-wrap: wrap;
       justify-items: center;
       .card {
         border-radius: 8px;
-        max-width: 250px;
+        padding: 6px;
+        max-width: 200px;
         box-sizing: border-box;
         text-align: start;
         cursor: pointer;
@@ -547,13 +548,14 @@ li {
       }
       .section2__cards {
         display: flex;
-        direction: flex-column;
+        flex-direction: column;
         margin-bottom: 30px;
         gap: 30px;
         justify-items: center;
         .card {
           border-radius: 8px;
-          max-width: 250px;
+          padding: 8px;
+          max-width: 100%;
           box-sizing: border-box;
           text-align: start;
           cursor: pointer;
