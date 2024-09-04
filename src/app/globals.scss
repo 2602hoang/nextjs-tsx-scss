@@ -540,6 +540,12 @@ li {
       }
     }
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .section3-info__item {
+      gap: 20px;
+    }
+  }
 }
 .section3-info1 {
   width: 100%;
@@ -580,6 +586,11 @@ li {
         padding-right: 0px;
         order: 1;
       }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .section3-info__item1 {
+      gap: 20px;
     }
   }
 }
@@ -639,18 +650,23 @@ li {
       }
     }
   }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .section3-info__item2 {
+      gap: 20px;
+    }
+  }
 }
 .section4 {
   background-repeat: no-repeat;
   background-size: 100% 120%;
-  height: 804px;
+  height: auto;
   width: 100%;
   display: flex;
+  align-items: center;
   .section4__content {
     display: flex;
     text-align: center;
     width: 100%;
-    height: 60%;
     flex-direction: column;
     height: auto;
     justify-content: center;
@@ -735,19 +751,22 @@ li {
     }
   }
   @media (max-width: 768px) {
-    height: 550px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
   }
 }
 .footer {
   width: 100%;
   height: auto;
   background-color: var(--bg-color);
+
   .container {
     max-width: 1110px;
     padding: 0 12px;
     margin: 0 auto;
+    height: auto;
+
     .responsive-container {
-      // background-color: var(--bg-color);
       flex-direction: column;
       width: 100%;
       height: auto;
@@ -780,21 +799,18 @@ li {
         background-color: #0056b3;
       }
 
-      .back-to-top:hover {
-        background-color: #0056b3;
-      }
       .top-section {
         width: 100%;
         display: flex;
-        height: 139px;
+        height: auto;
         align-items: center;
         justify-content: space-between;
+
         .top-section__p {
           font-size: 14px;
           line-height: 24px;
           margin-top: 45px;
           color: #939ea4;
-          /* margin-left: 165px; */
           padding-top: 10px;
           padding-right: 20px;
           font-weight: 500;
@@ -809,6 +825,7 @@ li {
           font-size: 26px;
           color: #37447e;
         }
+
         .top-section__a:hover {
           color: var(--color-active);
         }
@@ -820,50 +837,48 @@ li {
           font-size: 12px;
           line-height: 18px;
           width: 109px;
-          /* margin-right: 175px; */
           height: 26px;
           background-color: #111b47;
           color: #fff;
         }
+
         .top-section__button:hover {
           background-color: var(--color-active);
         }
       }
+
       .bottom-section {
-        margin: 0px 0px 0px 0px;
+        width: 100%;
+        padding: 20px 0;
         border-top: 1px solid #cdd1d4;
         display: flex;
-        height: 76px;
+        height: auto;
         align-items: center;
         justify-content: space-between;
+
         .links {
           display: flex;
+
           .links__list {
             display: flex;
             justify-content: flex-start;
             align-items: center;
             padding: 0;
-            margin: 10px 10px 0px 0px;
+            margin: 10px 0 0 0;
             list-style-type: none;
             gap: 60px;
           }
+
           .links__list a {
             cursor: pointer;
-            // align-text: start;
             font-size: 14px;
-            color: #929ecc;
+            color: #939ea4;
             font-weight: 500;
             line-height: 24px;
-            color: #939ea4;
-          }
-          .links-active1:hover {
-            color: #ff0000;
           }
 
-          .links-active2:hover {
-            color: #ff0000;
-          }
-
+          .links-active1:hover,
+          .links-active2:hover,
           .links-active3:hover {
             color: #ff0000;
           }
@@ -871,34 +886,20 @@ li {
 
         .social-icons {
           display: flex;
-          margin: 10px 10px 0px 0px;
+          margin: 10px 0 0 0;
           justify-content: start;
+
           .social-icons__list {
             display: flex;
             cursor: pointer;
             flex-direction: row;
             align-items: end;
             gap: 30px;
-            .icons-facebook:hover {
-              border-radius: 9999px;
-              background-color: var(--color-active);
-              border: 1px solid var(--color-active);
-            }
-            .icons-linkedin:hover {
-              border-radius: 9999px;
-              background-color: var(--color-active);
-              border: 1px solid var(--color-active);
-            }
-            .icons-twitter:hover {
-              border-radius: 9999px;
-              background-color: var(--color-active);
-              border: 1px solid var(--color-active);
-            }
-            .icons-youtube:hover {
-              border-radius: 9999px;
-              background-color: var(--color-active);
-              border: 1px solid var(--color-active);
-            }
+
+            .icons-facebook:hover,
+            .icons-linkedin:hover,
+            .icons-twitter:hover,
+            .icons-youtube:hover,
             .icons-instagram:hover {
               border-radius: 9999px;
               background-color: var(--color-active);
@@ -908,21 +909,36 @@ li {
         }
       }
     }
-    @media (max-width: 768px) {
-      height: 450px;
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      height: 60vh;
       .responsive-container {
         .back-to-top {
-          bottom: 25%;
+          bottom: 50%;
         }
+      }
+    }
+
+    @media (max-width: 768px) {
+      height: 500px;
+      padding: 0 0 30px 0;
+
+      .responsive-container {
+        .back-to-top {
+          bottom: 30%;
+        }
+
         .top-section {
           flex-direction: column;
-          height: 20%;
-          padding: 20px 0px 0px 0px;
+          height: auto;
+          padding: 20px 0 0 0;
           justify-content: start;
+
           .top-section__a {
             padding: 0;
-            margin: 10px 0px 10px 0;
+            margin: 10px 0;
           }
+
           .top-section__button {
             padding: 0;
             margin: 0 0 20px 0;
@@ -933,10 +949,9 @@ li {
             margin: 0 auto;
           }
         }
+
         .bottom-section {
           flex-direction: column;
-
-          bottom: -80px;
         }
       }
     }
