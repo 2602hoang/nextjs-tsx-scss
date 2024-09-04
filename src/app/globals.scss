@@ -1028,6 +1028,8 @@ li {
     .aboutsection__image-container {
       margin-left: 100px;
       width: 100%;
+      display: flex;
+      align-items: center;
       height: auto;
     }
   }
