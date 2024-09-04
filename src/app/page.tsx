@@ -6,9 +6,7 @@ import axios from "axios";
 interface DATA {
   dis: string;
   img: string;
-  image: string;
   title: string;
-  text: string;
 }
 export default function Home() {
   const [data1, setData1] = useState<DATA[]>([]);
