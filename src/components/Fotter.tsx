@@ -40,7 +40,7 @@ const Fotter = () => {
           </button>
           <div className="top-section">
             <p className="top-section__p">©2023 Yourcompany</p>
-            <a className="top-section__a" href="../html/index.html">
+            <a className="top-section__a" href="/">
               Landing
             </a>
             <button className="top-section__button">Purchase now</button>
