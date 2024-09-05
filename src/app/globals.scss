@@ -55,9 +55,11 @@ li {
     border-top: 0;
     box-sizing: content-box;
     border-radius: 0 0 40% 40%;
-    -webkit-mask: linear-gradient(#000 0 0) bottom/4px 2px no-repeat,
+    -webkit-mask: linear-gradient(#000 0 0) bottom / 4px 2px no-repeat,
       linear-gradient(#000 0 0);
     -webkit-mask-composite: destination-out;
+    mask: linear-gradient(#000 0 0) bottom / 4px 2px no-repeat,
+      linear-gradient(#000 0 0);
     mask-composite: exclude;
     background: linear-gradient(var(--d, 0deg), var(--c2) 50%, #0000 0) bottom /
         100% 205%,

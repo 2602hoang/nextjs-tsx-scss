@@ -3,6 +3,7 @@
 import Card from "@/components/Card";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ContentLoading from "@/components/ContentLoading";
 interface DATA {
   dis: string;
   img: string;
@@ -29,11 +30,7 @@ export default function Home() {
   return (
     <div>
       {data1.length === 0 ? (
-        <div className="loader-container">
-          <div className="loader"></div>
-
-          <p>Loading...</p>
-        </div>
+        <ContentLoading />
       ) : (
         <div>
           <section
