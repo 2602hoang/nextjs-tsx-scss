@@ -53,7 +53,6 @@ export const DataContextProvider: React.FC<DataContextProvider> = ({
   );
 };
 
-// Custom hook để sử dụng context dễ dàng hơn
 export const useDataContext = () => {
   const context = useContext(DataContext);
   if (context === undefined) {

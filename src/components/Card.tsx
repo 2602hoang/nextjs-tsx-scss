@@ -12,11 +12,11 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ icon, title, text }) => {
   return (
     <div className="section2__cards">
-      <a href="#" className="card">
+      <div className="card">
         <img src={icon} alt="Icon" width={40} height={40} />
         <h2 className="card__title">{title}</h2>
         <p className="card__text">{text}</p>
-      </a>
+      </div>
     </div>
   );
 };
