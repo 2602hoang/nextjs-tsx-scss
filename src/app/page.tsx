@@ -1,31 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import Card from "@/components/Card";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import ContentLoading from "@/components/ContentLoading";
+import { useDataContext } from "@/contexts/DataContext";
 interface DATA {
   dis: string;
   img: string;
   title: string;
 }
 export default function Home() {
-  const [data1, setData1] = useState<DATA[]>([]);
-
-  const getData = async () => {
-    try {
-      const res = await axios.get<DATA[]>(
-        "https://server-api-lime.vercel.app/api/v1/email/api/get"
-      );
-      setData1(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const { data1 } = useDataContext();
 
   return (
     <div>
@@ -83,7 +67,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="section2__cards-list">
-                  {data1.map((item, index) => (
+                  {data1.slice(0, 4).map((item, index) => (
                     <Card
                       key={index}
                       icon={item.img}
@@ -118,13 +102,8 @@ export default function Home() {
                 />
               </div>
               <div className="section3-info__text-container">
-                <h2 className=" medium-36">Light, Fast & Powerful</h2>
-                <p className="regular-16">
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                  natoque penatibus et magnis dis parturient montes, nascetur
-                  ridiculus
-                </p>
+                <h2 className=" medium-36">{data1[4].title}</h2>
+                <p className="regular-16">{data1[4].dis}</p>
                 <p className="regular-16__sub">
                   mus Donec quam felis, ultricies nec, pellentesque eu, pretium
                   quis, sem. Nulla consequat massa quis enim.
@@ -144,13 +123,8 @@ export default function Home() {
                 />
               </div>
               <div className="section3-info__text-container1">
-                <h2 className="medium-36">Light, Fast & Powerful</h2>
-                <p className="regular-16">
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                  natoque penatibus et magnis dis parturient montes, nascetur
-                  ridiculus
-                </p>
+                <h2 className="medium-36">{data1[5].title}</h2>
+                <p className="regular-16">{data1[5].dis}</p>
                 <p className="regular-16__sub">
                   mus Donec quam felis, ultricies nec, pellentesque eu, pretium
                   quis, sem. Nulla consequat massa quis enim.
@@ -170,13 +144,8 @@ export default function Home() {
                 />
               </div>
               <div className="section3-info__text-container2">
-                <h2 className=" medium-36">Light, Fast & Powerful</h2>
-                <p className="regular-16">
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                  natoque penatibus et magnis dis parturient montes, nascetur
-                  ridiculus
-                </p>
+                <h2 className=" medium-36">{data1[6].title}</h2>
+                <p className="regular-16">{data1[6].dis}</p>
 
                 <p className="regular-16__sub">
                   mus Donec quam felis, ultricies nec, pellentesque eu, pretium
