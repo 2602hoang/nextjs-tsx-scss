@@ -7,16 +7,17 @@ interface CardProps {
   icon: string;
   title: string;
   text: string;
+  onClick: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ icon, title, text }) => {
+const Card: React.FC<CardProps> = ({ icon, title, text, onClick }) => {
   return (
     <div className="section2__cards">
-      <div className="card">
+      <a className="card" onClick={onClick}>
         <img src={icon} alt="Icon" width={40} height={40} />
         <h2 className="card__title">{title}</h2>
         <p className="card__text">{text}</p>
-      </div>
+      </a>
     </div>
   );
 };

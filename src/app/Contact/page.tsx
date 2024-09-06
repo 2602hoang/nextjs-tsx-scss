@@ -7,8 +7,13 @@ import { NoData } from "@/components/nodata/NoData";
 import { useLogicDataCard } from "@/store/DataCard";
 import React from "react";
 
+import CardModal from "@/components/modal/CardModal";
+import { useLogicCommom } from "../indexLogic/useLogic";
+
 function Contact() {
   const { loading, dataCard } = useLogicDataCard();
+  const { selectedItemId, selectedItem, openModal, closeModal } =
+    useLogicCommom({ dataCard });
 
   return (
     <div>
@@ -47,22 +52,13 @@ function Contact() {
                     </div>
                     <div className="contact__cards">
                       <div className="contact__card-container">
-                        {dataCard.slice(7, 9).map((item, index) => (
+                        {dataCard.slice(5, 10).map((item) => (
                           <Card
-                            key={index}
+                            key={item.id}
                             icon={item.img}
                             title={item.title}
                             text={item.dis}
-                          />
-                        ))}
-                      </div>
-                      <div className="contact__card-container">
-                        {dataCard.slice(9, 11).map((item, index) => (
-                          <Card
-                            key={index}
-                            icon={item.img}
-                            title={item.title}
-                            text={item.dis}
+                            onClick={() => openModal(item.id)}
                           />
                         ))}
                       </div>
@@ -70,6 +66,15 @@ function Contact() {
                   </div>
                 </div>
               </section>
+              <>
+                <CardModal
+                  isOpen={!!selectedItemId}
+                  onClose={closeModal}
+                  title={selectedItem?.title || ""}
+                  img={selectedItem?.img || ""}
+                  dis={selectedItem?.dis || ""}
+                />
+              </>
             </div>
           )}
         </>

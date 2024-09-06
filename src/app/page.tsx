@@ -4,9 +4,14 @@ import Card from "@/components/card/Card";
 import ContentLoading from "@/components/loading/ContentLoading";
 import { NoData } from "@/components/nodata/NoData";
 import { useLogicDataCard } from "@/store/DataCard";
+import { useLogicCommom } from "./indexLogic/useLogic";
+import CardModal from "@/components/modal/CardModal";
 
 export default function Home() {
   const { loading, dataCard } = useLogicDataCard();
+
+  const { selectedItemId, selectedItem, openModal, closeModal } =
+    useLogicCommom({ dataCard });
 
   return (
     <div>
@@ -73,6 +78,7 @@ export default function Home() {
                           icon={item.img}
                           title={item.title}
                           text={item.dis}
+                          onClick={() => openModal(item.id)}
                         />
                       ))}
                     </div>
@@ -189,6 +195,15 @@ export default function Home() {
                   </div>
                 </div>
               </section>
+              <>
+                <CardModal
+                  isOpen={!!selectedItemId}
+                  onClose={closeModal}
+                  title={selectedItem?.title || ""}
+                  img={selectedItem?.img || ""}
+                  dis={selectedItem?.dis || ""}
+                />
+              </>
             </div>
           ) : (
             <NoData />
