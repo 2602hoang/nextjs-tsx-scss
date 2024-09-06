@@ -3,40 +3,17 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
+import {
+  handleScroll,
+  handleKeyDown,
+  scrollToTop,
+} from "@/components/fotter/useLogic";
 
 const Fotter = () => {
-  //back to top
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-  // keyboard
-  const handleKeyDown = (event: KeyboardEvent) => {
-    //  Shift + T || space
-    if (event.key === " ") {
-      scrollToTop();
-    }
-  };
-
-  //show button
-  const handleScroll = () => {
-    const backToTopButton = document.getElementById(
-      "backToTop"
-    ) as HTMLButtonElement;
-    if (backToTopButton) {
-      if (window.scrollY > 300) {
-        backToTopButton.classList.add("show");
-      } else {
-        backToTopButton.classList.remove("show");
-      }
-    }
-  };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("keydown", handleKeyDown);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("keydown", handleKeyDown);

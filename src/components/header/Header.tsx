@@ -1,28 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useHeaderLogic } from "./useLogic";
 
 export const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isScrolled, isMobileMenuOpen, toggleMobileMenu } = useHeaderLogic();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
   return (
     <div className={`header ${isScrolled ? "header--scrolled" : ""}`}>
       <div className="container">
