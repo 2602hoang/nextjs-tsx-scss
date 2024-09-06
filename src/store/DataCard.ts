@@ -15,7 +15,6 @@ export const useLogicDataCard = () => {
   const [loading, setLoading] = useState(false);
 
   const getData = async () => {
-    setLoading(false);
     try {
       setLoading(false);
       const res = await axios.get<DATA[]>(
