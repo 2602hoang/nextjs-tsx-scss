@@ -3,17 +3,32 @@
 import Card from "@/components/card/Card";
 import ContentLoading from "@/components/loading/ContentLoading";
 import { NoData } from "@/components/nodata/NoData";
-import React from "react";
-import { useLogicDataCard } from "@/store/DataCard";
+import React, { useState } from "react";
+import { DATA, useLogicDataCard } from "@/store/DataCard";
 import CardModal from "@/components/modal/CardModal";
-import { useLogicCommom } from "../indexLogic/useLogic";
+import { useLogicAbout } from "./useLogic";
+import LayoutPage from "@/components/layout/LayoutPage";
 
 function About() {
   const { loading, dataCard } = useLogicDataCard();
-  const { selectedItemId, selectedItem, openModal, closeModal } =
-    useLogicCommom({ dataCard });
+  const [isOpen, setIsOpen] = useState(false);
+  const [dataModal, setDataModal] = useState({
+    title: "",
+    img: "",
+    dis: "",
+  });
+
+  const onClick = (item: DATA) => {
+    setIsOpen(true);
+    setDataModal({
+      title: item.title,
+      img: item.img,
+      dis: item.dis,
+    });
+  };
+  const { about } = useLogicAbout();
   return (
-    <div>
+    <LayoutPage>
       {!loading ? (
         <ContentLoading />
       ) : (
@@ -26,29 +41,18 @@ function About() {
                 <div className="aboutsection__container">
                   <div className="aboutsection__text-container">
                     <div className="aboutsection__text">
-                      <h2 className="medium-36">
-                        Design & Build Your Own Landing Pages
-                      </h2>
-                      <p className="regular-16">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing
-                        elit. Aenean commodo ligula eget dolor. Aenean massa.
-                        Cum sociis natoque penatibus et magnis dis parturient
-                        montes, nascetur ridiculus
-                        <br />
-                        <br />
-                        mus. Donec quam felis, ultricies nec, pellentesque eu,
-                        pretium quis, sem. Nulla consequat massa quis enim.
-                      </p>
+                      <h2 className="medium-36">{about[0].title}</h2>
+                      <p className="regular-16">{about[0].dis}</p>
                     </div>
                     <div className="aboutsection__cards">
                       <div className="aboutsection__card-container">
                         {dataCard.slice(4, 10).map((item, index) => (
                           <Card
-                            key={index}
+                            key={item.id}
                             icon={item.img}
                             title={item.title}
                             text={item.dis}
-                            onClick={() => openModal(item.id)}
+                            onClick={() => onClick(item)}
                           />
                         ))}
                       </div>
@@ -66,18 +70,16 @@ function About() {
               </section>
               <>
                 <CardModal
-                  isOpen={!!selectedItemId}
-                  onClose={closeModal}
-                  title={selectedItem?.title || ""}
-                  img={selectedItem?.img || ""}
-                  dis={selectedItem?.dis || ""}
+                  isOpen={isOpen}
+                  onClose={() => setIsOpen(false)}
+                  data={dataModal}
                 />
               </>
             </div>
           )}
         </>
       )}
-    </div>
+    </LayoutPage>
   );
 }
 

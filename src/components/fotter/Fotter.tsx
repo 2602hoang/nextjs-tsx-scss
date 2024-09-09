@@ -29,7 +29,7 @@ const Fotter = () => {
           </button>
           <div className="top-section">
             <p className="top-section__p">©2023 Yourcompany</p>
-            <a className="top-section__a" href="/">
+            <a className="top-section__a" href="/Home">
               Landing
             </a>
             <button className="top-section__button">Purchase now</button>
@@ -39,7 +39,7 @@ const Fotter = () => {
             <div className="links">
               <ul className="links__list">
                 <li>
-                  <a href="/" className="links-active1">
+                  <a href="/Home" className="links-active1">
                     Home
                   </a>
                 </li>

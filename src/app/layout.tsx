@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
 import "@/style/index.scss";
-import { Header } from "@/components/header/Header";
-import Fotter from "@/components/fotter/Fotter";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "NextJS tsx scss",
@@ -19,10 +17,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${roboto.className}`}>
-        <Header />
-        {children}
-        <Fotter />
+      <body className={`${inter.className}`}>
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

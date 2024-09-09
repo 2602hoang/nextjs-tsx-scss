@@ -4,19 +4,33 @@
 import Card from "@/components/card/Card";
 import ContentLoading from "@/components/loading/ContentLoading";
 import { NoData } from "@/components/nodata/NoData";
-import { useLogicDataCard } from "@/store/DataCard";
-import React from "react";
+import { DATA, useLogicDataCard } from "@/store/DataCard";
+import React, { useState } from "react";
 
 import CardModal from "@/components/modal/CardModal";
-import { useLogicCommom } from "../indexLogic/useLogic";
+import { useLogicContact } from "./useLogic";
+import LayoutPage from "@/components/layout/LayoutPage";
 
 function Contact() {
   const { loading, dataCard } = useLogicDataCard();
-  const { selectedItemId, selectedItem, openModal, closeModal } =
-    useLogicCommom({ dataCard });
+  const [isOpen, setIsOpen] = useState(false);
+  const [dataModal, setDataModal] = useState({
+    title: "",
+    img: "",
+    dis: "",
+  });
 
+  const onClick = (item: DATA) => {
+    setIsOpen(true);
+    setDataModal({
+      title: item.title,
+      img: item.img,
+      dis: item.dis,
+    });
+  };
+  const { contact } = useLogicContact();
   return (
-    <div>
+    <LayoutPage>
       {!loading ? (
         <ContentLoading />
       ) : (
@@ -38,17 +52,8 @@ function Contact() {
 
                   <div className="contact__content">
                     <div className="contact__text-container">
-                      <h2 className="medium-36">Light, Fast & Powerful</h2>
-                      <p className="regular-16">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing
-                        elit. Aenean commodo ligula eget dolor. Aenean massa.
-                        Cum sociis natoque penatibus et magnis dis parturient
-                        montes, nascetur ridiculus
-                        <br />
-                        <br />
-                        mus. Donec quam felis, ultricies nec, pellentesque eu,
-                        pretium quis, sem. Nulla consequat massa quis enim.
-                      </p>
+                      <h2 className="medium-36">{contact[0].title}</h2>
+                      <p className="regular-16">{contact[0].dis}</p>
                     </div>
                     <div className="contact__cards">
                       <div className="contact__card-container">
@@ -58,7 +63,7 @@ function Contact() {
                             icon={item.img}
                             title={item.title}
                             text={item.dis}
-                            onClick={() => openModal(item.id)}
+                            onClick={() => onClick(item)}
                           />
                         ))}
                       </div>
@@ -68,18 +73,16 @@ function Contact() {
               </section>
               <>
                 <CardModal
-                  isOpen={!!selectedItemId}
-                  onClose={closeModal}
-                  title={selectedItem?.title || ""}
-                  img={selectedItem?.img || ""}
-                  dis={selectedItem?.dis || ""}
+                  isOpen={isOpen}
+                  onClose={() => setIsOpen(false)}
+                  data={dataModal}
                 />
               </>
             </div>
           )}
         </>
       )}
-    </div>
+    </LayoutPage>
   );
 }
 

@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { URL } from "@/untils/Url";
 
 // Định nghĩa kiểu dữ liệu DATA
-interface DATA {
+export interface DATA {
   id: string;
   dis: string;
   img: string;
@@ -18,7 +19,7 @@ export const useLogicDataCard = () => {
     try {
       setLoading(false);
       const res = await axios.get<DATA[]>(
-        "https://server-api-lime.vercel.app/api/v1/email/api/get"
+        `${URL}api/v1/email/api/get`
       );
         setCard(res.data);
         setLoading(true);
