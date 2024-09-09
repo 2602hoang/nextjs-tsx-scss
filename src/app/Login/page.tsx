@@ -1,17 +1,41 @@
 "use client";
 import { useAuth } from "@/contexts/AuthContext";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Login: React.FC = () => {
   const [phone, setPhone] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [localError, setLocalError] = useState<string | null>(null);
+  const [prevError, setPrevError] = useState<string | null>(null);
+
   const { login, error } = useAuth();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    // if (!phone) {
+    //   alert("Phone cannot be left blank 😓😓😓");
+    //   return;
+    // }
+
+    // if (!password) {
+    //   alert("Password cannot be left blank 😓😓😓");
+    //   return;
+    // }
     event.preventDefault();
     await login(phone, password);
   };
+  useEffect(() => {
+    if (error && error !== prevError && error.trim() !== "") {
+      setLocalError(error);
+      setPrevError(error);
+      const timer = setTimeout(() => {
+        setLocalError(null);
+      }, 100);
+      return () => clearTimeout(timer);
+    } else if (error.trim() === "") {
+      setLocalError(null);
+    }
+  }, [error, prevError]);
 
   return (
     <div className="login-container">
@@ -108,10 +132,11 @@ const Login: React.FC = () => {
             )}
           </span>
         </div>
+        {localError && <p className="error">{localError}</p>}
+
         <button className="submit" type="submit">
           Sign in
         </button>
-        {error && <p>{error}</p>}
         <p className="signup-link">
           No account?
           <a href="/signup">Sign up</a>

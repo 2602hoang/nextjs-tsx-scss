@@ -6,6 +6,7 @@ import axios from "axios";
 
 export const loginUser = async (phone: string, password: string): Promise<{ success: boolean; error?: string }> => {
   try {
+   
     const response = await axios.post(`${URL}api/v1/auth/login`, { phone, password });
     const data = response.data;
 
@@ -30,6 +31,7 @@ export const loginUser = async (phone: string, password: string): Promise<{ succ
     return { success: false, error: "Login failed" };
   } catch (error) {
     console.error("Login error: ", error);
-    return { success: false, error: "information cannot be left blank 😓😓😓" };
+    return { success: false, error: "Information cannot be left blank 😓😓😓" };
+
   }
 };

@@ -16,6 +16,11 @@
   --bg-color: #e7ecff;
   --color-active: #007bffcc;
 }
+.error {
+  color: red;
+  text-align: center;
+  padding: 10px 10px;
+}
 .loader-container {
   display: flex;
   justify-content: center;

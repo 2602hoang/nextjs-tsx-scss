@@ -54,7 +54,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
         setUserRole(parseInt(role));
       }
       setUserId(id);
-      setError("Login successful");
+      setError("");
       router.push("/");
     } else {
       setError(result.error || "Login failed");
