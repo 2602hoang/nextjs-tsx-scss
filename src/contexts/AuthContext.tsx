@@ -33,11 +33,10 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     setUserToken(token);
     setUserRole(role ? parseInt(role) : null);
     setUserId(id);
-
     if (!token) {
       router.push("/Login");
     }
-  }, [router]);
+  }, [router, userToken]);
 
   const login = async (phone: string, password: string): Promise<void> => {
     const result = await loginUser(phone, password);

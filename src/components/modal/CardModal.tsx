@@ -13,7 +13,6 @@ export interface CardModalProps {
 
 const CardModal: React.FC<CardModalProps> = ({ isOpen, onClose, data }) => {
   // If the modal is closed, return nothing
-
   if (!isOpen) return null;
   // If the modal is open, render the content below
   return (

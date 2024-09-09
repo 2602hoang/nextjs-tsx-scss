@@ -1,6 +1,6 @@
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #121212;
+    background-color: #7864a6cc;
     color: #ffffff;
   }
 }
@@ -226,7 +226,8 @@
       .header__logo {
         text-align: center;
         flex: 1;
-
+        margin: 0;
+        padding: 0;
         a {
           cursor: pointer;
           font-weight: 900;
@@ -234,7 +235,6 @@
           font-size: 26px;
           color: #37447e;
           text-decoration: none;
-
           &:hover {
             color: var(--color-active);
           }
@@ -382,7 +382,7 @@
   min-height: 100vh;
   // background-image: url("../images/panner.png");
   background-repeat: no-repeat;
-  background-size: 71% 100%;
+  background-size: 70% 100%;
   background-position: right;
   justify-content: center;
   height: auto;
@@ -1060,6 +1060,7 @@
   .aboutsection__container {
     flex-direction: row;
     margin-top: 65px;
+    height: auto;
     display: flex;
     padding: 13px;
     .aboutsection__text-container {
@@ -1093,10 +1094,13 @@
             cursor: pointer;
           }
           .card:hover {
-            background-color: #bababacc;
+            background-color: #ffffffcc;
             transform: scale(0.95);
             // border: 1px solid #000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
           }
 
           .card__icon {
@@ -1185,10 +1189,12 @@
             cursor: pointer;
           }
           .card:hover {
-            background-color: #bababacc;
+            background-color: #ffffffcc;
             transform: scale(0.95);
             // border: 1px solid #000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
           }
           .card__icon {
             width: 36px;
@@ -1242,7 +1248,7 @@
   width: 45%;
 
   .card {
-    padding: 1px;
+    padding: 4px;
     max-width: 100%;
     box-sizing: border-box;
     text-align: start;
@@ -1251,10 +1257,12 @@
   }
 
   .card:hover {
-    background-color: #bababacc;
+    background-color: #ffffffcc;
     transform: scale(0.95);
     // border: 1px solid #000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   }
 
   .card:active {

@@ -39,10 +39,13 @@ function About() {
             <div>
               <section className="aboutsection">
                 <div className="aboutsection__container">
-                  <div className="aboutsection__text-container">
+                  <div
+                    data-aos="zoom-in"
+                    className="aboutsection__text-container"
+                  >
                     <div className="aboutsection__text">
-                      <h2 className="medium-36">{about[0].title}</h2>
-                      <p className="regular-16">{about[0].dis}</p>
+                      <h2 className="medium-36">{about.title}</h2>
+                      <p className="regular-16">{about.dis}</p>
                     </div>
                     <div className="aboutsection__cards">
                       <div className="aboutsection__card-container">
@@ -58,7 +61,10 @@ function About() {
                       </div>
                     </div>
                   </div>
-                  <div className="aboutsection__image-container">
+                  <div
+                    data-aos="zoom-in-up"
+                    className="aboutsection__image-container"
+                  >
                     <img
                       src="/Vert.png"
                       alt="Logo"

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { URL } from "@/untils/Url";
 
-// Định nghĩa kiểu dữ liệu DATA
 export interface DATA {
   id: string;
   dis: string;

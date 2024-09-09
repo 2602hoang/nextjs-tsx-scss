@@ -41,7 +41,7 @@ function Contact() {
             <div>
               <section className="contact">
                 <div className="contact__container">
-                  <div className="contact__image-container">
+                  <div data-aos="fade-up" className="contact__image-container">
                     <img
                       src="/Image.png"
                       alt="Image"
@@ -50,10 +50,10 @@ function Contact() {
                     />
                   </div>
 
-                  <div className="contact__content">
+                  <div data-aos="fade-down" className="contact__content">
                     <div className="contact__text-container">
-                      <h2 className="medium-36">{contact[0].title}</h2>
-                      <p className="regular-16">{contact[0].dis}</p>
+                      <h2 className="medium-36">{contact.title}</h2>
+                      <p className="regular-16">{contact.dis}</p>
                     </div>
                     <div className="contact__cards">
                       <div className="contact__card-container">

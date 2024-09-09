@@ -43,13 +43,13 @@ export default function Home() {
                     style={{ backgroundImage: "url(/panner.png)" }}
                     className="section1"
                   >
-                    <div className="section1__text">
+                    <div data-aos="zoom-in" className="section1__text">
                       <div className="section1__text-box">
-                        <h1 className="medium-50">{section1[0].title}</h1>
+                        <h1 className="medium-50">{section1.title}</h1>
 
-                        <p className="regular-18">{section1[0].dis}</p>
+                        <p className="regular-18">{section1.dis}</p>
 
-                        <p className="regular-18__sub">{section1[0].dis1}</p>
+                        <p className="regular-18__sub">{section1.dis1}</p>
                       </div>
 
                       <div className="section1__buttons">
@@ -67,10 +67,10 @@ export default function Home() {
 
                   <section className="section2">
                     <div className="section2__container">
-                      <div className="section2__content">
+                      <div data-aos="zoom-in" className="section2__content">
                         <div className="section2__text-container">
-                          <h2 className="medium-36">{section2[0].title}</h2>
-                          <p className="regular-16">{section2[0].dis}</p>
+                          <h2 className="medium-36">{section2.title}</h2>
+                          <p className="regular-16">{section2.dis}</p>
                         </div>
                         <div className="section2__cards-list">
                           {dataCard.slice(0, 4).map((item) => (
@@ -85,7 +85,10 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div className="section2__image-container">
+                      <div
+                        data-aos="zoom-in"
+                        className="section2__image-container"
+                      >
                         <img
                           src="/mobile.png"
                           alt="Mobile"
@@ -99,7 +102,7 @@ export default function Home() {
                   {/* <!-- Section3 --> */}
 
                   <section className="section3-info">
-                    <div className="section3-info__item">
+                    <div data-aos="fade-up" className="section3-info__item">
                       <div className="section3-info__image-container">
                         <img
                           src="/info.png"
@@ -120,7 +123,7 @@ export default function Home() {
                   </section>
 
                   <section className="section3-info1">
-                    <div className="section3-info__item1">
+                    <div data-aos="fade-up" className="section3-info__item1">
                       <div className="section3-info__image-container1">
                         <img
                           src="/info1.png"
@@ -141,7 +144,7 @@ export default function Home() {
                   </section>
 
                   <section className="section3-info2">
-                    <div className="section3-info__item2">
+                    <div data-aos="fade-up" className="section3-info__item2">
                       <div className="section3-info__image-container2">
                         <img
                           src="/info2.png"
@@ -171,19 +174,19 @@ export default function Home() {
                     className="section4"
                   >
                     <div className="section4__content">
-                      <div className="section4__text-box">
-                        <h2 className="section4__title">{section4[0].title}</h2>
+                      <div data-aos="fade-up" className="section4__text-box">
+                        <h2 className="section4__title">{section4.title}</h2>
                         <p className="section4__description">
-                          {section4[0].dis}
+                          {section4.dis}
                         </p>
                       </div>
-                      <div className="section4__price-box">
+                      <div data-aos="fade-up" className="section4__price-box">
                         <strong className="section4__price">
-                          ${section4[0].price}
+                          ${section4.price}
                         </strong>
                         <h2 className="section4__subtitle">UI Design Kit</h2>
                       </div>
-                      <div className="section4__purchase">
+                      <div data-aos="fade-up" className="section4__purchase">
                         <p className="section4__note">
                           See, One price. Simple.
                         </p>
