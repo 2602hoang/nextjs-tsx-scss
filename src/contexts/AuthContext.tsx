@@ -1,5 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { loginUser } from "@/app/Login/useLogic";
+import { URL } from "@/untils/Url";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, {
   createContext,
@@ -16,6 +19,15 @@ interface AuthContextType {
   userRole: number | null;
   userId: string | null;
   error: string;
+  dataUser: User | null;
+  loading: boolean;
+}
+interface User {
+  id_user: string;
+  username: string;
+  phone: string;
+  avatar: string;
+  status: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -23,6 +35,8 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [userToken, setUserToken] = useState<string | null>(null);
   const [userRole, setUserRole] = useState<number | null>(null);
+  const [dataUser, setDataUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
   const [error, setError] = useState<string>("");
   const router = useRouter();
@@ -33,10 +47,16 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     setUserToken(token);
     setUserRole(role ? parseInt(role) : null);
     setUserId(id);
+    console.log(userToken);
+
     if (!token) {
       router.push("/Login");
     }
-  }, [router, userToken]);
+  }, [router]);
+
+  useEffect(() => {
+    getData();
+  }, [userToken]);
 
   const login = async (phone: string, password: string): Promise<void> => {
     const result = await loginUser(phone, password);
@@ -59,6 +79,26 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       setError(result.error || "Login failed");
     }
   };
+  const getData = async () => {
+    try {
+      setLoading(false);
+      const res = await axios.get<{ user: User }>(
+        `${URL}api/v1/user/getone/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+      setDataUser(res.data.user);
+      console.log(res.data.user);
+
+      setLoading(true);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(true);
+    }
+  };
 
   const logout = () => {
     localStorage.removeItem("userToken");
@@ -72,7 +112,16 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ login, userToken, userRole, userId, error, logout }}
+      value={{
+        login,
+        logout,
+        userToken,
+        userRole,
+        userId,
+        error,
+        loading,
+        dataUser,
+      }}
     >
       {children}
     </AuthContext.Provider>
